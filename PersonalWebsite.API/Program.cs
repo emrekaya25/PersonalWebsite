@@ -1,6 +1,8 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using PersonalWebsite.API.Middleware;
 using PersonalWebsite.Business.Abstract;
 using PersonalWebsite.Business.Concrete;
 using PersonalWebsite.DataAccess.Abstract.DataManagement;
@@ -58,6 +60,7 @@ builder.Services.AddScoped<IContactService, ContactManager>();
 builder.Services.AddScoped<IPortfolioService, PortfolioManager>();
 builder.Services.AddScoped<ISkillsService, SkillsManager>();
 builder.Services.AddScoped<ISocialService, SocialManager>();
+builder.Services.AddFluentValidationAutoValidation();
 
 
 builder.Services.AddAuthentication(opt =>
@@ -83,6 +86,8 @@ builder.Services.AddAuthentication(opt =>
 
 
 var app = builder.Build();
+
+app.UseGlobalExceptionMiddleware();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PersonalWebsite.Business.Abstract;
+using PersonalWebsite.Business.Aspects;
+using PersonalWebsite.Business.ValidationRules;
 using PersonalWebsite.Entity.DTO.AboutDTO;
 using PersonalWebsite.Entity.Result;
 
@@ -31,7 +33,9 @@ namespace PersonalWebsite.API.Controllers
 			var value = await _service.GetAsync(id, x => true);
 			return Ok(value);
 		}
+		
 		[HttpPost]
+		[ValidationFilter(typeof(AboutValidator))]
 		public async Task<IActionResult> AddOrUpdate(AboutDTORequest about)
 		{
 			ApiResponse<bool> value;

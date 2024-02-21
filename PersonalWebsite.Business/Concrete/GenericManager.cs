@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using PersonalWebsite.Business.Abstract;
+using PersonalWebsite.Business.Aspects;
+using PersonalWebsite.Business.ValidationRules;
 using PersonalWebsite.DataAccess.Abstract.DataManagement;
 using PersonalWebsite.Entity.Base;
 using PersonalWebsite.Entity.Result;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -22,6 +25,7 @@ namespace PersonalWebsite.Business.Concrete
 			_mapper = mapper;
 			_uow = uow;
 		}
+		
 		public async Task<ApiResponse<bool>> AddAsync(TRequest p)
 		{
 			var result = new ApiResponse<bool>();
