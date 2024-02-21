@@ -10,6 +10,6 @@ namespace PersonalWebsite.Entity.Poco
 	public class Skills:BaseEntity
 	{
 		public string Name { get; set; }
-		public int Percent { get; set; }
+		public int Percentile { get; set; }
 	}
 }

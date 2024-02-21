@@ -10,6 +10,7 @@ namespace PersonalWebsite.Entity.Poco
 	public class Image:BaseEntity
 	{
 		public string Url { get; set; }
+		public int PortfolioId { get; set; }
 		public Portfolio Portfolio { get; set; }
 	}
 }

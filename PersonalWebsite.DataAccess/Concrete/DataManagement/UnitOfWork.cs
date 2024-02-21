@@ -13,34 +13,46 @@ namespace PersonalWebsite.DataAccess.Concrete.DataManagement
 {
 	public class UnitOfWork : IUnitOfWork
 	{
+		private Dictionary<Type, object> _repositories;
 		private readonly PersonalWebSiteContext _context;
+
 		public UnitOfWork(PersonalWebSiteContext context)
 		{
+			_repositories = new Dictionary<Type, object>();
 			_context = context;
-
-			AboutRepository = new AboutRepository(_context);
-			ContactRepository = new ContactRepository(_context);
-			PortfolioRepository = new PortfolioRepository(_context);
-			SkillsRepository = new SkillsRepository(_context);
-			SocialRepository = new SocialRepository(_context);
-			UserRepository = new UserRepository(_context);
 		}
 
-		public IAboutRepository AboutRepository { get; }
-
-		public IContactRepository ContactRepository { get; }
-
-		public IPortfolioRepository PortfolioRepository { get;}
-
-		public ISkillsRepository SkillsRepository { get; }
-
-		public ISocialRepository SocialRepository { get; }
-
-		public IUserRepository UserRepository { get; }
-
-		public Task<int> SaveChangeAsync()
+		public async Task<bool> SaveChangesAsync()
 		{
-			return _context.SaveChangesAsync();
+			var result = false;
+
+			using (var transaction = _context.Database.BeginTransaction())
+			{
+				try
+				{
+					await _context.SaveChangesAsync();
+					await transaction.CommitAsync();
+					result = true;
+				}
+				catch
+				{
+					await transaction.RollbackAsync();
+					throw;
+				}
+			}
+			return result;
+		}
+
+		public IRepository<T> GetRepository<T>() where T : BaseEntity
+		{
+			if (_repositories.ContainsKey(typeof(IRepository<T>)))
+			{
+				return (IRepository<T>)_repositories[typeof(IRepository<T>)];
+			}
+
+			var repository = new Repository<T>(_context);
+			_repositories.Add(typeof(IRepository<T>), repository);
+			return repository;
 		}
 	}
 }

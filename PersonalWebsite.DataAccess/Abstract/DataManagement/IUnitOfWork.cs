@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonalWebsite.Entity.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,7 @@ namespace PersonalWebsite.DataAccess.Abstract.DataManagement
 {
 	public interface IUnitOfWork
 	{
-		public IAboutRepository AboutRepository { get; }
-		public IContactRepository ContactRepository { get; }
-		public IPortfolioRepository PortfolioRepository { get; }
-		public ISkillsRepository SkillsRepository { get; }
-		public ISocialRepository SocialRepository { get; }
-		public IUserRepository UserRepository { get; }
-		Task<int> SaveChangeAsync();
+		public IRepository<T> GetRepository<T>() where T : BaseEntity;
+		public Task<bool> SaveChangesAsync();
 	}
 }
