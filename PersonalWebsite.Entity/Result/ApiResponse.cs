@@ -29,7 +29,7 @@ namespace PersonalWebsite.Entity.Result
 			this.Error = error;
 		}
 
-		public ApiResponse( ErrorInformation error)
+		public ApiResponse(ErrorInformation error)
 		{
 			this.Error = error;
 		}

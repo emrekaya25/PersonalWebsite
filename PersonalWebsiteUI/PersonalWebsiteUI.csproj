@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalWebsite.Business\PersonalWebsite.Business.csproj" />
+    <ProjectReference Include="..\PersonalWebsite.DataAccess\PersonalWebsite.DataAccess.csproj" />
+    <ProjectReference Include="..\PersonalWebsite.Entity\PersonalWebsite.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
