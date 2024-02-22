@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using PersonalWebsite.Entity.DTO.ImageDTO;
 using PersonalWebsite.Entity.DTO.PortfolioDTO;
 using PersonalWebsite.Entity.Poco;
 using System;
@@ -16,9 +15,6 @@ namespace PersonalWebsite.Business.Mapper.PortfolioMapper
 		{
 			CreateMap<Portfolio, PortfolioDTORequest>();
 			CreateMap<PortfolioDTORequest, Portfolio>();
-
-			CreateMap<ImageDTORequest, Image>();
-			CreateMap<Image, ImageDTORequest>();
 		}
 	}
 }

@@ -1,5 +1,4 @@
-﻿using PersonalWebsite.Entity.DTO.ImageDTO;
-using PersonalWebsite.Entity.Poco;
+﻿using PersonalWebsite.Entity.Poco;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +12,7 @@ namespace PersonalWebsite.Entity.DTO.PortfolioDTO
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
-		public IEnumerable<ImageDTORequest> Images { get; set; }
+		public string Image { get; set; }
+		public string Url { get; set; }
 	}
 }
