@@ -1933,31 +1933,31 @@ header .logo a {
 	overflow: hidden;
 	background: #000000;
 }
-.popup-modal .link-box a {
-	font-family: "poppins-bold", sans-serif;
-	font-size: 1.2rem;
-	line-height: 6rem;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	cursor: pointer;
-	display: block;
-	text-align: center;
-	float: left;
-	width: 50%;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	-webkit-transition: all 0.3s ease-in-out;
-	-ms-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-}
+	.popup-modal .link-box a {
+		font-family: "poppins-bold", sans-serif;
+		font-size: 1.2rem;
+		line-height: 6rem;
+		color: #FFFFFF;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		cursor: pointer;
+		display: block;
+		text-align: center;
+		float: left;
+		width: 50%;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		-webkit-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+	}
 .popup-modal .link-box a:first-child {
 	border-right: 1px solid rgba(200, 200, 200, 0.1);
 }
-.popup-modal .link-box a:hover {
-	background: #cc005f;
-	border: none;
-}
+		.popup-modal .link-box a:hover {
+			background: #43c95f;
+			border: none;
+		}
 @media only screen and (max-width:600px) {
 	.popup-modal {
 		width: auto;
@@ -2362,11 +2362,11 @@ header .logo a {
 	margin-top: 4.8rem;
 	width: 100%;
 	background: #43c95f;
-	color: #FFFFFF;
+	color: #151515;
 }
-#contact button.submitform:hover, #contact button.submitform:focus {
-	background: #cc005f;
-}
+	#contact button.submitform:hover, #contact button.submitform:focus {
+		background: #FFFFFF;
+	}
 #message-warning, #message-success {
 	display: none;
 	background: #0d0d0d;
