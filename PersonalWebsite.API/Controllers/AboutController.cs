@@ -25,7 +25,7 @@ namespace PersonalWebsite.API.Controllers
 			var value = await _service.GetAllAsync();
 			return Ok(value);
 		}
-		[HttpPost]
+		[HttpPost("{id}")]
 		public async Task<IActionResult> GetOne(int id)
 		{
 			var deneme = new AboutDTOResponse();

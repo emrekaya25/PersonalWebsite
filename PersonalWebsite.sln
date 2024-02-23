@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalWebsiteUI", "PersonalWebsiteUI\PersonalWebsiteUI.csproj", "{EB775E92-F46B-402C-80DD-D4031649CE52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalWebsite.API", "PersonalWebsite.API\PersonalWebsite.API.csproj", "{F98279E0-D8C3-405F-A30A-CD0B095E4CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalWebsite.API", "PersonalWebsite.API\PersonalWebsite.API.csproj", "{F98279E0-D8C3-405F-A30A-CD0B095E4CB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalWebsite.Entity", "PersonalWebsite.Entity\PersonalWebsite.Entity.csproj", "{B841521F-8B1B-435A-9E97-954FDF8F9571}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalWebsite.Entity", "PersonalWebsite.Entity\PersonalWebsite.Entity.csproj", "{B841521F-8B1B-435A-9E97-954FDF8F9571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalWebsite.DataAccess", "PersonalWebsite.DataAccess\PersonalWebsite.DataAccess.csproj", "{F028FA7D-9B07-4938-852A-2DC1612538EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalWebsite.DataAccess", "PersonalWebsite.DataAccess\PersonalWebsite.DataAccess.csproj", "{F028FA7D-9B07-4938-852A-2DC1612538EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalWebsite.Business", "PersonalWebsite.Business\PersonalWebsite.Business.csproj", "{BAF8596E-6D68-49A5-96C5-90DC7C8D6E20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalWebsite.Business", "PersonalWebsite.Business\PersonalWebsite.Business.csproj", "{BAF8596E-6D68-49A5-96C5-90DC7C8D6E20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalWebsite.UI", "PersonalWebsite.UI\PersonalWebsite.UI.csproj", "{918E3254-CFD8-4EA3-BF46-26AEA9D2A6D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB775E92-F46B-402C-80DD-D4031649CE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB775E92-F46B-402C-80DD-D4031649CE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB775E92-F46B-402C-80DD-D4031649CE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB775E92-F46B-402C-80DD-D4031649CE52}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F98279E0-D8C3-405F-A30A-CD0B095E4CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F98279E0-D8C3-405F-A30A-CD0B095E4CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F98279E0-D8C3-405F-A30A-CD0B095E4CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{BAF8596E-6D68-49A5-96C5-90DC7C8D6E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF8596E-6D68-49A5-96C5-90DC7C8D6E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAF8596E-6D68-49A5-96C5-90DC7C8D6E20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918E3254-CFD8-4EA3-BF46-26AEA9D2A6D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918E3254-CFD8-4EA3-BF46-26AEA9D2A6D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918E3254-CFD8-4EA3-BF46-26AEA9D2A6D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918E3254-CFD8-4EA3-BF46-26AEA9D2A6D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
