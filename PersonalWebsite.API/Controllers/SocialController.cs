@@ -32,15 +32,15 @@ namespace PersonalWebsite.API.Controllers
 			return Ok(value);
 		}
 		[HttpPost]
-		public async Task<IActionResult> AddOrUpdate(SocialDTORequest about)
+		public async Task<IActionResult> AddOrUpdate(SocialDTORequest social)
 		{
 			ApiResponse<bool> value;
-			if (about.Id == 0)
+			if (social.Id == 0)
 			{
-				value = await _service.AddAsync(about);
+				value = await _service.AddAsync(social);
 				return Ok(value);
 			}
-			value = await _service.UpdateAsync(about);
+			value = await _service.UpdateAsync(social);
 			return Ok(value);
 		}
 		[HttpPost]

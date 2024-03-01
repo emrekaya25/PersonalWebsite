@@ -13,9 +13,7 @@ namespace PersonalWebsite.Entity.Poco
 		public DateTime BirthDate { get; set; }
         public string Job { get; set; }
         public string Mail { get; set; }
-		public string Description { get; set; }
 		public string Resume { get; set; }
-		public string SkillText { get; set; }
 		public string Photo { get; set; }
 
 

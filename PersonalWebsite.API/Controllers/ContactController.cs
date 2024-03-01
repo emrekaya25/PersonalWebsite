@@ -32,15 +32,16 @@ namespace PersonalWebsite.API.Controllers
 			return Ok(value);
 		}
 		[HttpPost]
-		public async Task<IActionResult> AddOrUpdate(ContactDTORequest about)
+		public async Task<IActionResult> AddOrUpdate(ContactDTORequest contact)
 		{
 			ApiResponse<bool> value;
-			if (about.Id == 0)
+			if (contact.Id == 0)
 			{
-				value = await _service.AddAsync(about);
+				value = await _service.AddAsync(contact);
 				return Ok(value);
 			}
-			value = await _service.UpdateAsync(about);
+
+			value = await _service.UpdateAsync(contact);
 			return Ok(value);
 		}
 		[HttpPost]

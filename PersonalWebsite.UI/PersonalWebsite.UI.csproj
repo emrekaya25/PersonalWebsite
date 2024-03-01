@@ -7,14 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\AdminUIPanel\**" />
+    <Content Remove="Areas\AdminUIPanel\**" />
+    <EmbeddedResource Remove="Areas\AdminUIPanel\**" />
+    <None Remove="Areas\AdminUIPanel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PersonalWebsite.Business\PersonalWebsite.Business.csproj" />
     <ProjectReference Include="..\PersonalWebsite.DataAccess\PersonalWebsite.DataAccess.csproj" />
     <ProjectReference Include="..\PersonalWebsite.Entity\PersonalWebsite.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\AdminPanel\Data\" />
+    <Folder Include="Areas\AdminPanel\Models\" />
   </ItemGroup>
 
 </Project>

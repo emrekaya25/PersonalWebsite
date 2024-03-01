@@ -17,7 +17,6 @@ namespace PersonalWebsite.Business.ValidationRules
 			RuleFor(x => x.NameSurname).NotEmpty().WithMessage("Kullanıcı adı boş olamaz.");
 			RuleFor(x => x.Resume).NotEmpty().WithMessage("Özgeçmiş boş olamaz.");
 			RuleFor(x => x.Mail).Matches("[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$").WithMessage("E-Posta Formatı Doğru Değil!!");
-			RuleFor(x => x.SkillText).NotEmpty().WithMessage("Yetenek alanı boş olamaz.");
 			RuleFor(x => x.Photo).NotEmpty().WithMessage("Resim boş olamaz.");
 			RuleFor(x => x.BirthDate).NotEmpty().WithMessage("Doğum tarihi boş olamaz.");
 		}
