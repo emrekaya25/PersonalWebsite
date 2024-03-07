@@ -29,17 +29,17 @@
 
 	$.validator.addMethod( "maxWords", function( value, element, params ) {
 		return this.optional( element ) || stripHtml( value ).match( /\b\w+\b/g ).length <= params;
-	}, $.validator.format("Lütfen {0} veya daha az kelime girin." ) );
+	}, $.validator.format( "Please enter {0} words or less." ) );
 
 	$.validator.addMethod( "minWords", function( value, element, params ) {
 		return this.optional( element ) || stripHtml( value ).match( /\b\w+\b/g ).length >= params;
-	}, $.validator.format( "Lütfen en az {0} kelime giriniz." ) );
+	}, $.validator.format( "Please enter at least {0} words." ) );
 
 	$.validator.addMethod( "rangeWords", function( value, element, params ) {
 		var valueStripped = stripHtml( value ),
 			regex = /\b\w+\b/g;
 		return this.optional( element ) || valueStripped.match( regex ).length >= params[ 0 ] && valueStripped.match( regex ).length <= params[ 1 ];
-	}, $.validator.format("Lütfen {0} ile {1} kelime arasında girin." ) );
+	}, $.validator.format( "Please enter between {0} and {1} words." ) );
 
 }() );
 
@@ -206,7 +206,7 @@ $.validator.addMethod( "bic", function( value, element ) {
  *   P. Local authorities
  *   Q. Autonomous bodies, state or not, and the like, and congregations and religious institutions
  *   R. Congregations and religious institutions (since 2008 ORDER EHA/451/2008)
- *   S. Organs of State AdminUIistration and regions
+ *   S. Organs of State Administration and regions
  *   V. Agrarian Transformation
  *   W. Permanent establishments of non-resident in Spain
  *
@@ -1431,15 +1431,15 @@ $.validator.addMethod( "stateUS", function( value, element, options ) {
 // TODO check if value starts with <, otherwise don't try stripping anything
 $.validator.addMethod( "strippedminlength", function( value, element, param ) {
 	return $( value ).text().length >= param;
-}, $.validator.format("Lütfen en az { 0} karakter girin." ) );
+}, $.validator.format( "Minimum {0} karakter olmalı!" ) );
 
 $.validator.addMethod( "time", function( value, element ) {
 	return this.optional( element ) || /^([01]\d|2[0-3]|[0-9])(:[0-5]\d){1,2}$/.test( value );
-}, "Lütfen 00:00 ile 23:59 arasında geçerli bir saat girin." );
+}, "Please enter a valid time, between 00:00 and 23:59." );
 
 $.validator.addMethod( "time12h", function( value, element ) {
 	return this.optional( element ) || /^((0?[1-9]|1[012])(:[0-5]\d){1,2}(\ ?[AP]M))$/i.test( value );
-}, "Lütfen 12 saatlik am / pm biçiminde geçerli bir saat girin." );
+}, "Please enter a valid time in 12-hour am/pm format." );
 
 // Same as url, but TLD is optional
 $.validator.addMethod( "url2", function( value, element ) {

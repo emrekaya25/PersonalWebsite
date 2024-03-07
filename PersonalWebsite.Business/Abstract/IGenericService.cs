@@ -15,9 +15,9 @@ namespace PersonalWebsite.Business.Abstract
 		Task<ApiResponse<TResponse>> GetAsync(int id, Expression<Func<TResponse, bool>> Filter, params string[] IncludeProperties);
 		Task<ApiResponse<IEnumerable<TResponse>>> GetAllAsync(Expression<Func<TResponse, bool>> Filter = null, params string[] IncludeProperties);
 
-		Task<ApiResponse<bool>> AddAsync(TRequest Entity);
+		Task<ApiResponse<TResponse>> AddAsync(TRequest Entity);
 
-		Task<ApiResponse<bool>> UpdateAsync(TRequest Entity);
+		Task<ApiResponse<TResponse>> UpdateAsync(TRequest Entity);
 
 		Task<ApiResponse<bool>> RemoveAsync(int id);
 

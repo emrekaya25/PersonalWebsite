@@ -1,41 +1,75 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PersonalWebsite.Entity.DTO.PortfolioDTO;
 using PersonalWebsite.Entity.DTO.SkillsDTO;
 using PersonalWebsite.Entity.Result;
+using PersonalWebsite.UI.Controllers;
 using RestSharp;
 
 namespace PersonalWebsite.UI.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
-    public class PortfolioController : Controller
+    [Authorize]
+    public class PortfolioController : BaseController
     {
-        [HttpGet("/Portfolio")]
-        public async Task<IActionResult> Index()
+        private readonly string url = "https://localhost:7018/";
+        private readonly IWebHostEnvironment _hostingEnvironment;
+
+        public PortfolioController(HttpClient httpClient, IWebHostEnvironment hostingEnvironment) : base(httpClient)
         {
-            var url = "https://localhost:7018/Portfolio/GetAll";
-            var client = new RestClient(url);
-            var request = new RestRequest(url, RestSharp.Method.Post);
-            request.AddHeader("Content-Type", "application/json");
-            RestResponse response = await client.ExecuteAsync(request);
-            var responseObject = JsonConvert.DeserializeObject<UIResponse<List<PortfolioDTOResponse>>>(response.Content);
+            _hostingEnvironment = hostingEnvironment;
 
-            return View(responseObject);
         }
+        [HttpGet("/Admin/Portfolio")]
+        public async Task<IActionResult> Portfolio()
+        {
+            UIResponse<List<PortfolioDTOResponse>> data = await GetAllAsync<PortfolioDTOResponse>(url + "Portfolio/GetAll");
+            return View(data);
+        }
+        [HttpPost("/CrudPortfolio")]
+        public async Task<IActionResult> CrudPortfolio(PortfolioDTORequest p, IFormFile ImageFile)
+        {
+            if (ImageFile != null)
+            {
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
+                var imagePath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, "images/portfolio", uniqueFileName);
 
-		[HttpPost("/AddPortfolio")]
-		public async Task<IActionResult> AddPortfolio(PortfolioDTORequest portfolio)
-		{
-			var url = "https://localhost:7018/Portfolio/AddOrUpdate";
-			var client = new RestClient(url);
-			var request = new RestRequest(url, RestSharp.Method.Post);
-			request.AddHeader("Content-Type", "application/json");
-			var body = JsonConvert.SerializeObject(portfolio);
-			request.AddBody(body, "application/json");
-			RestResponse response = await client.ExecuteAsync(request);
-			var responseObject = JsonConvert.DeserializeObject<UIResponse<PortfolioDTOResponse>>(response.Content);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await ImageFile.CopyToAsync(stream);
+                }
+                p.Image = uniqueFileName;
+                var data = await AddAsync(p, url + "Portfolio/AddOrUpdate");
 
-			return View(responseObject.Data);
-		}
-	}
+                if (data != null)
+                {
+                    return Json(new { success = true, responseText = " İşlem Başarılı" });
+                }
+                return Json(new { success = false, responseText = " İşlem Başarısız Oldu!" });
+            }
+            else
+            {
+                var data = await AddAsync(p, url + "Portfolio/AddOrUpdate");
+                if (data.Success == true)
+                {
+                    return Json(new { success = true, responseText = " İşlem Başarılı" });
+                }
+                return Json(new { success = false, responseText = " İşlem Başarısız Oldu!" });
+
+            }
+
+        }
+        [HttpPost("/DeletePortfolio")]
+        public async Task<IActionResult> DeletePortfolio(int id)
+        {
+            var data = await DeleteAsync(url + "Portfolio/Remove/" + id);
+            if (data)
+            {
+                return Json(new { success = true, responseText = " İşlem Başarılı" });
+            }
+            return Json(new { success = false, responseText = " İşlem Başarısız Oldu!" });
+
+        }
+    }
 }

@@ -11,7 +11,7 @@ namespace PersonalWebsite.Business.Abstract
 {
 	public interface IUserService:IGenericService<UserDTORequest,UserDTOResponse>
 	{
-		Task<ApiResponse<bool>> UpdateUserAsync(UserDTORequest Entity);
+		Task<ApiResponse<UserDTOResponse>> UpdateUserAsync(UserDTORequest Entity);
 		Task<ApiResponse<LoginDTOResponse>> LoginAsync(LoginDTORequest Entity);
 	}
 }

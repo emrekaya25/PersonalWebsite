@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace PersonalWebsite.API.Middleware
 {
-	// You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
-	public class GlobalExceptionMiddleware
+    // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
+    public class GlobalExceptionMiddleware
     {
         private readonly RequestDelegate _next;
 
@@ -29,10 +29,10 @@ namespace PersonalWebsite.API.Middleware
             catch (Exception e)
             {
 
-                if (e.GetType()==typeof(FieldValidationException))
+                if (e.GetType() == typeof(FieldValidationException))
                 {
                     List<string> errors = new();
-                       errors = e.Data["FieldValidationMessage"] as List<string>;
+                    errors = e.Data["FieldValidationMessage"] as List<string>;
 
                     httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     httpContext.Response.ContentType = "application/json";
@@ -48,7 +48,7 @@ namespace PersonalWebsite.API.Middleware
             }
 
 
-            
+
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PersonalWebsite.Entity.DTO.AboutDTO;
 using PersonalWebsite.Entity.DTO.LoginDTO;
@@ -10,6 +11,7 @@ using RestSharp;
 namespace PersonalWebsite.UI.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]
+    [Authorize]
     public class AdminHomeController : BaseController
     {
         private readonly string url = "https://localhost:7018/";
