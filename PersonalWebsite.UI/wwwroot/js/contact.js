@@ -36,7 +36,7 @@ $("#update").click(function (e) {
             formValid = false; // Form geçersiz
             $(this).addClass("is-invalid"); // Hata göstergesi ekle
             $(this).siblings(".invalid-feedback").remove(); // Var olan hata mesajını kaldır
-            $(this).after('<div class="invalid-feedback" style="color:darkred;">Bu alan boş bırakılamaz.</div>'); // Yeni hata mesajı ekle
+            $(this).after('<div class="invalid-feedback" style="color:#43c95f;">Bu alan boş bırakılamaz.</div>'); // Yeni hata mesajı ekle
         } else {
             $(this).removeClass("is-invalid"); // Hata göstergesini kaldır
             $(this).siblings(".invalid-feedback").remove(); // Hata mesajını kaldır
